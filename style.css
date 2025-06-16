@@ -1,0 +1,601 @@
+/* General Body Styles */
+body {
+    font-family: sans-serif; /* 全体のフォントをシンプルなものに設定 */
+    margin: 0; /* ページの周りの余白をなくす */
+    padding-top: 60px; /* ヘッダーの高さ分、コンテンツを下にずらす（ヘッダーが重ならないように） */
+    background-color: #ffeef2; /* ページの背景色を薄いピンクに設定 */
+    color: #333; /* 文字の色を濃いグレーに設定 */
+    line-height: 1.6; /* 行の高さを調整して読みやすくする */
+}
+
+/* Header Styles */
+.header {
+    position: fixed; /* 画面の一番上に固定する */
+    top: 0; /* 上からの位置を0に */
+    left: 0; /* 左からの位置を0に */
+    width: 100%; /* 横幅を画面いっぱいに */
+    background-color: #fff; /* 背景色を白に */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 下に影をつけて浮き上がって見えるように */
+    z-index: 1000; /* 他の要素より手前に表示する（数字が大きいほど手前） */
+}
+
+.header-content {
+    display: flex; /* 中の要素を横並びにする（Flexbox） */
+    justify-content: space-between; /* 要素を左右に広げて配置する */
+    align-items: center; /* 要素を上下中央に揃える */
+    padding: 10px 20px; /* 上下左右に余白を設定 */
+    max-width: 1200px; /* 最大の幅を1200pxに制限 */
+    margin: 0 auto; /* 左右の余白を自動にして、コンテンツを中央に配置する */
+}
+
+.logo img {
+    height: 40px; /* ロゴ画像の高さを40pxに設定 */
+    vertical-align: middle; /* 垂直方向の中央に揃える */
+}
+
+.nav ul {
+    list-style: none; /* リストの点（・）をなくす */
+    margin: 0; /* リストの余白をなくす */
+    padding: 0; /* リストの余白をなくす */
+    display: flex; /* リストの項目（li）を横並びにする */
+}
+
+.nav li {
+    margin-left: 20px; /* 各リスト項目の左側に20pxの余白 */
+}
+
+.nav a {
+    text-decoration: none; /* 下線をなくす */
+    color: #ff69b4; /* 文字の色をピンクに */
+    font-weight: bold; /* 文字を太くする */
+    font-size: 1.1em; /* 文字の大きさを少し大きくする */
+}
+
+.nav a:hover {
+    color: #ff1493; /* マウスを乗せたときに文字の色を濃いピンクに */
+}
+
+/* ナビの配置のところ！！！ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.main-visual {
+    position: relative; /* 子要素を絶対配置するための基準にする */
+    background-color: #ffc0cb; /* 背景色を薄いピンクに */
+    text-align: center; /* 中のテキストを中央揃えに */
+    padding: 120px 20px; /* 上下に大きく、左右に少し余白を設定 */
+    overflow: hidden; /* はみ出したコンテンツを非表示にする（泡が外に出ないように） */
+    margin-bottom: 40px; /* 下に40pxの余白 */
+}
+
+.main-title {
+    font-size: 3em; /* 文字の大きさを非常に大きく */
+    color: #333; /* 文字の色を濃いグレーに */
+    margin: 0; /* 余白をなくす */
+    position: relative; /* 相対配置（z-indexを使うため） */
+    z-index: 1; /* 泡より手前に表示する */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* 文字に白い影をつけて読みやすくする */
+    line-height: 1.2; /* 行間を調整 */
+}
+
+.main-title span {
+    display: block; /* 各<span>タグを新しい行に表示する */
+}
+
+/* Bubbles for Main Visual */
+.bubbles {
+    position: absolute; /* 親要素（.main-visual）を基準に配置 */
+    top: 0; /* 上からの位置を0に */
+    left: 0; /* 左からの位置を0に */
+    width: 100%; /* 横幅をいっぱいに */
+    height: 100%; /* 縦幅をいっぱいに */
+    pointer-events: none; /* クリックイベントを通過させる（泡を触っても下の要素がクリックできるように） */
+}
+
+.bubble {
+    position: absolute; /* 親要素（.bubbles）を基準に配置 */
+    background-color: rgba(0, 0, 0, 0.4); /* 背景色を半透明の黒に */
+    border-radius: 50%; /* 角を丸くして円にする */
+    opacity: 0.7; /* 不透明度を70%に */
+    animation: float 15s infinite ease-in-out; /* 'float'というアニメーションを15秒かけて無限に繰り返す */
+}
+
+/* 各バブルのサイズと初期位置 */
+/* n-th-child(n)はn番目の要素を指定します。 */
+.bubble:nth-child(1) {
+    width: 100px; /* 横幅 */
+    height: 100px; /* 縦幅 */
+    top: 10%; /* 上からの位置 */
+    left: 5%; /* 左からの位置 */
+    animation-delay: 0s; /* アニメーション開始の遅延時間 */
+    animation-duration: 18s; /* アニメーションの総時間 */
+}
+
+.bubble:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 2s;
+    animation-duration: 15s;
+}
+
+.bubble:nth-child(3) {
+    width: 120px;
+    height: 120px;
+    top: 30%;
+    left: 20%;
+    animation-delay: 4s;
+    animation-duration: 20s;
+}
+
+.bubble:nth-child(4) {
+    width: 70px;
+    height: 70px;
+    top: 80%;
+    left: 40%;
+    animation-delay: 6s;
+    animation-duration: 16s;
+}
+
+.bubble:nth-child(5) {
+    width: 90px;
+    height: 90px;
+    top: 5%;
+    left: 90%;
+    animation-delay: 8s;
+    animation-duration: 19s;
+}
+
+/* バブルのアニメーションの定義 */
+/* @keyframesはアニメーションの動きを細かく設定するためのものです。 */
+@keyframes float {
+    0% { /* アニメーション開始時 */
+        transform: translateY(0) translateX(0); /* 位置を元に戻す */
+    }
+    25% { /* アニメーションの25%経過時 */
+        transform: translateY(-20px) translateX(10px); /* 上に20px、右に10px移動 */
+    }
+    50% { /* アニメーションの50%経過時 */
+        transform: translateY(0) translateX(-10px); /* 位置を元に戻し、左に10px移動 */
+    }
+    75% { /* アニメーションの75%経過時 */
+        transform: translateY(20px) translateX(5px); /* 下に20px、右に5px移動 */
+    }
+    100% { /* アニメーション終了時 */
+        transform: translateY(0) translateX(0); /* 位置を元に戻す */
+    }
+}
+
+
+/* 全てのセクションに共通するスタイル */
+.section-container {
+    max-width: 900px; /* セクションの最大の幅を900pxに制限 */
+    margin: 40px auto; /* 上下に40px、左右は自動で中央に配置 */
+    padding: 20px; /* 内側に20pxの余白 */
+    background-color: #fff; /* 背景色を白に */
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 影をつけて浮き上がって見えるように */
+}
+
+.section-title {
+    text-align: center; /* 文字を中央揃えに */
+    color: #ff69b4; /* 文字の色をピンクに */
+    font-size: 2em; /* 文字の大きさを大きく */
+    margin-bottom: 30px; /* 下に30pxの余白 */
+    padding-bottom: 10px; /* 下側に10pxの余白 */
+    border-bottom: 2px solid #ffeef2; /* 下に薄いピンクの線 */
+}
+
+/* Section 1: 2008年第2次タピオカブームとは？ の特別なスタイル */
+.content-wrapper {
+    display: flex; /* 中の要素（画像とテキスト）を横並びにする */
+    flex-direction: row-reverse; /* 横並びの順序を逆にする（画像が右に来るように） */
+    align-items: flex-start; /* 要素を上端で揃える */
+    gap: 20px; /* 要素間の隙間を20pxに */
+}
+
+.content-wrapper p {
+    flex: 1; /* 残りのスペースを柔軟に埋める（テキストが伸び縮みする） */
+    min-width: 50%; /* テキストの最小幅を50%に設定（画像より小さくなりすぎないように） */
+}
+
+.section-image {
+    flex-shrink: 0; /* 画像が縮まないようにする */
+    width: 250px; /* 画像の横幅を固定する */
+    height: 250px; /* 画像の縦幅を固定する */
+    object-fit: cover; /* 画像を指定した幅と高さに合わせてトリミングする（画像が歪まず、領域を埋める） */
+    border-radius: 8px; /* 角を丸くする */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 影をつける */
+}
+
+/* Section 2: 令和版☆タピオカ常識テスト の特別なスタイル */
+.quiz-section .section-title {
+    background-color: #ffc0cb; /* 背景色を薄いピンクに */
+    border-radius: 5px; /* 角を丸くする */
+    padding: 15px; /* 内側に余白を設定 */
+    color: #333; /* 文字の色を濃いグレーに */
+    border-bottom: none; /* 下線はなし */
+    font-size: 1.8em; /* 文字の大きさを調整 */
+}
+
+.quiz-item {
+    margin-bottom: 30px; /* 下に30pxの余白 */
+    padding: 20px; /* 内側に余白を設定 */
+    background-color: #ffeef2; /* 背景色を薄いピンクに */
+    border-radius: 8px; /* 角を丸くする */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* 内側に影をつける */
+}
+
+.quiz-q {
+    display: flex; /* 中の要素を横並びにする */
+    align-items: center; /* 要素を上下中央に揃える */
+    gap: 20px; /* 要素間の隙間を20pxに */
+    margin-bottom: 15px; /* 下に15pxの余白 */
+}
+
+.quiz-q .quiz-image {
+    max-width: 150px; /* クイズ画像の最大の横幅を150pxに */
+    height: auto; /* 縦幅は自動で調整 */
+    border-radius: 5px; /* 角を丸くする */
+    object-fit: contain; /* 画像を歪ませずに全体を領域に収める */
+}
+
+.quiz-q p {
+    font-size: 1.1em; /* 文字の大きさを少し大きく */
+    color: #555; /* 文字の色をグレーに */
+    flex-grow: 1; /* 残りのスペースを埋めるように伸びる */
+}
+
+/* クイズの答えボタン（リンク）のスタイル */
+.quiz-answer-link {
+    background-color: #ff69b4; /* 背景色をピンクに */
+    color: white; /* 文字の色を白に */
+    padding: 10px 15px; /* 内側に余白を設定 */
+    border: none; /* 枠線をなくす */
+    border-radius: 5px; /* 角を丸くする */
+    cursor: pointer; /* マウスカーソルを指の形にする */
+    font-size: 1em; /* 文字の大きさ */
+    display: block; /* ブロック要素にして、横幅いっぱいに広がるようにする */
+    margin: 0 auto; /* 左右の余白を自動にして中央に配置する */
+    text-decoration: none; /* 下線をなくす */
+    transition: background-color 0.3s ease; /* 色が変わる時に0.3秒かけて滑らかに変化させる */
+}
+
+.quiz-answer-link:hover {
+    background-color: #ff1493; /* マウスを乗せたときに背景色を濃いピンクに */
+}
+
+/* モーダル（ポップアップ画面）の共通スタイル */
+.modal {
+    display: none; /* 最初は非表示にする */
+    position: fixed; /* 画面に固定する */
+    z-index: 1001; /* 他の要素より一番手前に表示する */
+    left: 0; /* 左からの位置を0に */
+    top: 0; /* 上からの位置を0に */
+    width: 100%; /* 横幅をいっぱいに */
+    height: 100%; /* 縦幅をいっぱいに */
+    overflow: auto; /* もし内容がはみ出したらスクロールできるようにする */
+    background-color: rgba(0,0,0,0.4); /* 背景色を半透明の黒に（後ろが透けて見えるように） */
+    display: flex; /* 中の要素をFlexboxで配置 */
+    justify-content: center; /* 横方向の中央に配置する */
+    align-items: center; /* 縦方向の中央に配置する */
+}
+
+.modal-content {
+    background-color: #fefefe; /* 背景色を白に近い色に */
+    margin: auto; /* 上下左右の余白を自動にして中央に配置 */
+    padding: 30px; /* 内側に30pxの余白 */
+    border: 1px solid #888; /* 枠線を細いグレーに */
+    width: 80%; /* 幅を80%に */
+    max-width: 500px; /* 最大の幅を500pxに制限 */
+    border-radius: 10px; /* 角を丸くする */
+    position: relative; /* 子要素を絶対配置するための基準にする */
+    text-align: center; /* 中のテキストを中央揃えに */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* 影をつける */
+}
+
+.close-button {
+    color: #aaa; /* 文字の色を薄いグレーに */
+    float: right; /* 右に寄せる（あまり使わない書き方ですが、残しています） */
+    font-size: 28px; /* 文字の大きさを大きく */
+    font-weight: bold; /* 文字を太くする */
+    position: absolute; /* 親要素（.modal-content）を基準に配置 */
+    top: 10px; /* 上からの位置 */
+    right: 20px; /* 右からの位置 */
+    cursor: pointer; /* マウスカーソルを指の形にする */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black; /* マウスを乗せたときに文字の色を黒に */
+    text-decoration: none; /* 下線をなくす */
+    cursor: pointer; /* マウスカーソルを指の形にする */
+}
+
+/* MYタピオカ診断モーダルの特別なスタイル */
+.diagnosis-content {
+    max-width: 400px; /* 診断モーダルの最大の幅を少し小さめにする */
+    padding: 20px; /* 内側に余白を設定 */
+    background-color: #fff; /* 背景色を白に */
+}
+
+.modal-phone-image {
+    max-width: 180px; /* 携帯電話画像の最大の横幅を180pxに */
+    height: auto; /* 縦幅は自動で調整 */
+    margin-bottom: 20px; /* 下に20pxの余白 */
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 影をつける */
+}
+
+.diagnosis-content .question {
+    font-size: 1.2em; /* 文字の大きさを少し大きく */
+    color: #333; /* 文字の色を濃いグレーに */
+    margin-bottom: 15px; /* 下に15pxの余白 */
+}
+
+#nickname-input {
+    width: 80%; /* 横幅を80%に */
+    padding: 10px; /* 内側に余白を設定 */
+    margin-bottom: 20px; /* 下に20pxの余白 */
+    border: 1px solid #ddd; /* 細いグレーの枠線 */
+    border-radius: 5px; /* 角を丸くする */
+    font-size: 1em; /* 文字の大きさ */
+    text-align: center; /* 入力文字を中央揃えに */
+}
+
+#submit-nickname {
+    background-color: #ff69b4; /* 背景色をピンクに */
+    color: white; /* 文字の色を白に */
+    padding: 12px 25px; /* 内側に余白を設定 */
+    border: none; /* 枠線をなくす */
+    border-radius: 25px; /* 角を大きく丸くする */
+    font-size: 1.1em; /* 文字の大きさを少し大きく */
+    cursor: pointer; /* マウスカーソルを指の形にする */
+    transition: background-color 0.3s ease; /* 色が変わる時に0.3秒かけて滑らかに変化させる */
+}
+
+#submit-nickname:hover {
+    background-color: #ff1493; /* マウスを乗せたときに背景色を濃いピンクに */
+}
+
+
+/* Section 3: 久しぶりにタピオカを飲みに行こう！ の特別なスタイル */
+.drink-section .section-title {
+    background-color: #ffc0cb; /* 背景色を薄いピンクに */
+    border-radius: 5px; /* 角を丸くする */
+    padding: 15px; /* 内側に余白を設定 */
+    color: #333; /* 文字の色を濃いグレーに */
+    border-bottom: none; /* 下線はなし */
+    font-size: 1.8em; /* 文字の大きさを調整 */
+}
+
+.flavor-list {
+    display: flex; /* 中の要素を横並びにする */
+    justify-content: space-around; /* 要素を均等に配置し、両端に隙間を空ける */
+    flex-wrap: wrap; /* 横幅が足りなくなったら、次の行に折り返す */
+    gap: 30px; /* 要素間の隙間を30pxに */
+    margin-top: 20px; /* 上に20pxの余白 */
+}
+
+.flavor-item {
+    flex: 1; /* 残りのスペースを柔軟に埋める（要素が伸び縮みする） */
+    min-width: 280px; /* 要素の最小の横幅を280pxに設定 */
+    max-width: 45%; /* 要素の最大の横幅を45%に設定 */
+    background-color: #ffeef2; /* 背景色を薄いピンクに */
+    border-radius: 8px; /* 角を丸くする */
+    padding: 20px; /* 内側に余白を設定 */
+    text-align: center; /* 中のテキストを中央揃えに */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 影をつける */
+}
+
+.flavor-item h3 {
+    color: #ff69b4; /* 文字の色をピンクに */
+    font-size: 1.5em; /* 文字の大きさを調整 */
+    margin-bottom: 10px; /* 下に10pxの余白 */
+}
+
+.flavor-item p {
+    font-size: 0.95em; /* 文字の大きさを少し小さく */
+    color: #666; /* 文字の色をグレーに */
+    margin-bottom: 5px; /* 下に5pxの余白 */
+}
+
+.flavor-item img {
+    max-width: 100%; /* 画像の最大の横幅を親要素の100%に */
+    height: auto; /* 縦幅は自動で調整 */
+    margin-top: 15px; /* 上に15pxの余白 */
+    border-radius: 5px; /* 角を丸くする */
+    object-fit: contain; /* 画像を歪ませずに全体を領域に収める */
+}
+
+.my-tapioka-diagnosis { /* MYタピオカ診断ボタンの親要素 */
+    text-align: center; /* 中の要素を中央揃えに */
+    margin-top: 40px; /* 上に40pxの余白 */
+    margin-bottom: 20px; /* 下に20pxの余白 */
+}
+
+#my-tapioka-diagnosis-button { /* MYタピオカ診断ボタンのスタイル */
+    background-color: #ff69b4; /* 背景色をピンクに */
+    color: white; /* 文字の色を白に */
+    padding: 15px 30px; /* 内側に余白を設定 */
+    border: none; /* 枠線をなくす */
+    border-radius: 30px; /* 角を大きく丸くする */
+    font-size: 1.2em; /* 文字の大きさを少し大きく */
+    cursor: pointer; /* マウスカーソルを指の形にする */
+    transition: background-color 0.3s ease; /* 色が変わる時に0.3秒かけて滑らかに変化させる */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* 影をつける */
+}
+
+#my-tapioka-diagnosis-button:hover {
+    background-color: #ff1493; /* マウスを乗せたときに背景色を濃いピンクに */
+}
+
+#my-tapioka-diagnosis-button span {
+    font-size: 0.8em; /* 中の「●」の文字の大きさを小さく */
+    vertical-align: middle; /* 垂直方向の中央に揃える */
+}
+
+/* Section 4: ☆超当たる！今日のタ・ピ・オ・カ占い☆ の特別なスタイル */
+.fortune-section .section-title {
+    background-color: #ffc0cb; /* 背景色を薄いピンクに */
+    border-radius: 5px; /* 角を丸くする */
+    padding: 15px; /* 内側に余白を設定 */
+    color: #333; /* 文字の色を濃いグレーに */
+    border-bottom: none; /* 下線はなし */
+    font-size: 1.8em; /* 文字の大きさを調整 */
+}
+
+.fortune-list {
+    display: flex; /* 中の要素をFlexboxで配置 */
+    flex-direction: column; /* 要素を縦に並べる */
+    gap: 20px; /* 要素間の隙間を20pxに */
+}
+
+.fortune-item {
+    display: flex; /* 中の要素を横並びにする */
+    align-items: center; /* 要素を上下中央に揃える */
+    background-color: #ffeef2; /* 背景色を薄いピンクに */
+    border-radius: 8px; /* 角を丸くする */
+    padding: 20px; /* 内側に余白を設定 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 影をつける */
+}
+
+.zodiac-sign img {
+    width: 80px; /* 横幅を80pxに */
+    height: 80px; /* 縦幅を80pxに */
+    margin-right: 20px; /* 右側に20pxの余白 */
+    object-fit: contain; /* 画像を歪ませずに全体を領域に収める */
+}
+
+.fortune-details h3 {
+    color: #ff69b4; /* 文字の色をピンクに */
+    font-size: 1.4em; /* 文字の大きさを調整 */
+    margin-bottom: 5px; /* 下に5pxの余白 */
+}
+
+.fortune-details p {
+    margin: 5px 0; /* 上下に5pxの余白、左右は0 */
+    font-size: 1em; /* 文字の大きさ */
+}
+
+.fortune-details .stars {
+    color: #ffcc00; /* 星の色を黄色に */
+}
+
+.fortune-details .hitokoto {
+    font-style: italic; /* 斜体にする */
+    color: #777; /* 文字の色をグレーに */
+    margin-top: 10px; /* 上に10pxの余白 */
+}
+
+.fortune-details .links a {
+    color: #ff69b4; /* 文字の色をピンクに */
+    text-decoration: none; /* 下線をなくす */
+    margin-right: 15px; /* 右側に15pxの余白 */
+    font-size: 0.9em; /* 文字の大きさを少し小さく */
+}
+
+.fortune-details .links a:hover {
+    text-decoration: underline; /* マウスを乗せたときに下線を表示 */
+}
+
+.all-fortune-button {
+    background-color: #ff69b4; /* 背景色をピンクに */
+    color: white; /* 文字の色を白に */
+    padding: 15px 30px; /* 内側に余白を設定 */
+    border: none; /* 枠線をなくす */
+    border-radius: 30px; /* 角を大きく丸くする */
+    font-size: 1.2em; /* 文字の大きさを少し大きく */
+    cursor: pointer; /* マウスカーソルを指の形にする */
+    display: block; /* ブロック要素にして、横幅いっぱいに広がるようにする */
+    margin: 40px auto 20px auto; /* 上に40px、左右は自動で中央、下に20pxの余白 */
+    transition: background-color 0.3s ease; /* 色が変わる時に0.3秒かけて滑らかに変化させる */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* 影をつける */
+}
+
+.all-fortune-button:hover {
+    background-color: #ff1493; /* マウスを乗せたときに背景色を濃いピンクに */
+}
+
+
+/* レスポンシブデザイン (スマートフォン表示用) */
+/* 画面の幅が768px以下のときに適用されるスタイルです。 */
+@media (max-width: 768px) {
+    body {
+        padding-top: 50px; /* スマホでのヘッダー高さ調整（少し小さくする） */
+    }
+
+    .header-content {
+        flex-direction: column; /* 中の要素を縦に並べる */
+        padding: 10px; /* 内側の余白を少し小さく */
+    }
+
+    .nav ul {
+        flex-wrap: wrap; /* 横幅が足りなくなったら、次の行に折り返す */
+        justify-content: center; /* 横方向の中央に配置する */
+        margin-top: 10px; /* 上に10pxの余白 */
+    }
+
+    .nav li {
+        margin: 5px 10px; /* 上下に5px、左右に10pxの余白 */
+    }
+
+    .main-visual {
+        padding: 80px 20px; /* スマホでの縦幅調整（少し小さくする） */
+    }
+
+    .main-title {
+        font-size: 2em; /* 文字の大きさを少し小さく */
+    }
+
+    .section-container {
+        margin: 20px auto; /* 上下の余白を少し小さく */
+        padding: 15px; /* 内側の余白を少し小さく */
+    }
+
+    .section-title {
+        font-size: 1.5em; /* 文字の大きさを少し小さく */
+        margin-bottom: 20px; /* 下の余白を少し小さく */
+    }
+
+    .content-wrapper {
+        flex-direction: column; /* スマホでは縦並びにする */
+        text-align: center; /* 中のテキストを中央揃えに */
+    }
+
+    .section-image {
+        width: 100%; /* スマホでの画像の横幅をいっぱいに */
+        height: auto; /* 縦幅は自動調整 */
+        max-width: 250px; /* 最大幅を設定して大きくなりすぎないように */
+        margin-bottom: 20px; /* 下に20pxの余白 */
+    }
+
+    .quiz-q {
+        flex-direction: column; /* 中の要素を縦に並べる */
+        text-align: center; /* 中のテキストを中央揃えに */
+    }
+
+    .quiz-q .quiz-image {
+        max-width: 120px; /* クイズ画像の最大の横幅を120pxに */
+        margin-bottom: 10px; /* 下に10pxの余白 */
+    }
+
+    .flavor-item {
+        max-width: 90%; /* スマホでの要素の最大の横幅を90%に */
+    }
+
+    .fortune-item {
+        flex-direction: column; /* 中の要素を縦に並べる */
+        text-align: center; /* 中のテキストを中央揃えに */
+    }
+
+    .zodiac-sign {
+        margin-bottom: 15px; /* 下に15pxの余白 */
+    }
+
+    .zodiac-sign img {
+        margin-right: 0; /* 右側の余白をなくす */
+    }
+
+    .modal-phone-image {
+        max-width: 150px; /* スマホでの携帯電話画像の最大の横幅を150pxに */
+    }
+}
