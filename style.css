@@ -41,7 +41,7 @@ body {
 }
 
 .nav li {
-    margin-left: 20px; /* 各リスト項目の左側に20pxの余白 */
+    margin-left: 20px; /* ✔各リスト項目の感覚✔*/
 }
 
 .nav a {
@@ -55,19 +55,22 @@ body {
     color: #ff1493; /* マウスを乗せたときに文字の色を濃いピンクに */
 }
 
-/* ナビの配置のところ！！！ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+
+
+/*↓タピオカ動くところーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
 .main-visual {
-    position: relative; /* 子要素を絶対配置するための基準にする */
-    background-color: #ffc0cb; /* 背景色を薄いピンクに */
+    position: relative; 
+    background-color: #ff79c9; /* 背景色を薄いピンクに */
     text-align: center; /* 中のテキストを中央揃えに */
     padding: 120px 20px; /* 上下に大きく、左右に少し余白を設定 */
     overflow: hidden; /* はみ出したコンテンツを非表示にする（泡が外に出ないように） */
-    margin-bottom: 40px; /* 下に40pxの余白 */
+    margin-bottom: 40px; /* 下に40pxの余白*/
 }
 
 .main-title {
-    font-size: 3em; /* 文字の大きさを非常に大きく */
-    color: #333; /* 文字の色を濃いグレーに */
+    font-size: 3em; /* ✔文字の大きさをおーきく */
+    color: #000000; /* ✔あれから１７年の文字の色 */
     margin: 0; /* 余白をなくす */
     position: relative; /* 相対配置（z-indexを使うため） */
     z-index: 1; /* 泡より手前に表示する */
@@ -91,14 +94,12 @@ body {
 
 .bubble {
     position: absolute; /* 親要素（.bubbles）を基準に配置 */
-    background-color: rgba(0, 0, 0, 0.4); /* 背景色を半透明の黒に */
+    background-color: rgba(0, 0, 0, 0.792); /* ✔タピオカの色 */
     border-radius: 50%; /* 角を丸くして円にする */
-    opacity: 0.7; /* 不透明度を70%に */
     animation: float 15s infinite ease-in-out; /* 'float'というアニメーションを15秒かけて無限に繰り返す */
 }
 
-/* 各バブルのサイズと初期位置 */
-/* n-th-child(n)はn番目の要素を指定します。 */
+/* 各バブル５つ 　大きさとか*/
 .bubble:nth-child(1) {
     width: 100px; /* 横幅 */
     height: 100px; /* 縦幅 */
@@ -165,7 +166,7 @@ body {
 }
 
 
-/* 全てのセクションに共通するスタイル */
+/* 全てのセクションに共通するスタイルーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .section-container {
     max-width: 900px; /* セクションの最大の幅を900pxに制限 */
     margin: 40px auto; /* 上下に40px、左右は自動で中央に配置 */
@@ -184,13 +185,18 @@ body {
     border-bottom: 2px solid #ffeef2; /* 下に薄いピンクの線 */
 }
 
-/* Section 1: 2008年第2次タピオカブームとは？ の特別なスタイル */
+
+
+
+
+/* Section 1: 第2次タピオカブームとは？ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .content-wrapper {
-    display: flex; /* 中の要素（画像とテキスト）を横並びにする */
+    display: flex; /*画像とテキストを横並びに！ */
     flex-direction: row-reverse; /* 横並びの順序を逆にする（画像が右に来るように） */
     align-items: flex-start; /* 要素を上端で揃える */
     gap: 20px; /* 要素間の隙間を20pxに */
 }
+
 
 .content-wrapper p {
     flex: 1; /* 残りのスペースを柔軟に埋める（テキストが伸び縮みする） */
