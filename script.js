@@ -128,4 +128,15 @@ document.addEventListener('DOMContentLoaded', function() {
         diagnosisModal.style.display = 'none'; // モーダルを非表示にします。
         nicknameInput.value = ''; // あだ名入力欄を空にします。
     });
+
+    // ★追加: 「自分の今日の運勢を見る」ボタンとリンクの連動
+    const allFortuneButton = document.querySelector('.all-fortune-button');
+    if (allFortuneButton) {
+        allFortuneButton.addEventListener('click', function() {
+            const link = this.dataset.link;
+            if (link) {
+                window.open(link, '_blank'); // 新しいタブでリンクを開く
+            }
+        });
+    }
 });

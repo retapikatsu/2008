@@ -1,4 +1,3 @@
-/* General Body Styles */
 body {
     font-family: sans-serif; /* 全体のフォントをシンプルなものに設定 */
     margin: 0; /* ページの周りの余白をなくす */
@@ -38,6 +37,7 @@ body {
     margin: 0; /* リストの余白をなくす */
     padding: 0; /* リストの余白をなくす */
     display: flex; /* リストの項目（li）を横並びにする */
+    margin-left: auto; /* ★追加: ヘッダーメニューを右寄せにする */
 }
 
 .nav li {
@@ -166,14 +166,13 @@ body {
 }
 
 
-/* 全てのセクションに共通するスタイルーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 各セクションの後ろの背景の□しかくーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .section-container {
     max-width: 900px; /* セクションの最大の幅を900pxに制限 */
     margin: 40px auto; /* 上下に40px、左右は自動で中央に配置 */
     padding: 20px; /* 内側に20pxの余白 */
-    background-color: #fff; /* 背景色を白に */
-    border-radius: 10px; /* 角を丸くする */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 影をつけて浮き上がって見えるように */
+    background-color: #fff; /* 背景を白 */
+    border-radius: 10px; /* 角を丸く */
 }
 
 .section-title {
@@ -191,28 +190,30 @@ body {
 
 /* Section 1: 第2次タピオカブームとは？ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .content-wrapper {
-    display: flex; /*画像とテキストを横並びに！ */
-    flex-direction: row-reverse; /* 横並びの順序を逆にする（画像が右に来るように） */
+    display: flex; /*画像と文章の設定　画像とテキストを横並びに！ */
+    flex-direction: row-reverse; /* 横並びの順序を逆にする（画像が右に来るように） これがないと画像の位置変わっちゃう*/
     align-items: flex-start; /* 要素を上端で揃える */
     gap: 20px; /* 要素間の隙間を20pxに */
 }
 
 
 .content-wrapper p {
-    flex: 1; /* 残りのスペースを柔軟に埋める（テキストが伸び縮みする） */
-    min-width: 50%; /* テキストの最小幅を50%に設定（画像より小さくなりすぎないように） */
+    flex: 1; /* ここは、テキストの書式設定　残りのスペースを柔軟に埋める（テキストが伸び縮みする） */
+    min-width: 50%; /* 画像より小さくなりすぎないように　これまじますと */
 }
 
 .section-image {
-    flex-shrink: 0; /* 画像が縮まないようにする */
-    width: 250px; /* 画像の横幅を固定する */
-    height: 250px; /* 画像の縦幅を固定する */
-    object-fit: cover; /* 画像を指定した幅と高さに合わせてトリミングする（画像が歪まず、領域を埋める） */
+    flex-shrink: 0; /* 個々のセクションはタピオカを飲む女の子の画像の書式設定 */
+    width: 4cm; /* ★修正: 画像の横幅 */
+    height: 6cm; /* ★修正: 画像の縦幅　できたあああああああ */
+    object-fit: contain; /* ★修正: 画像全体が表示されるように */
+    background-color: transparent; /* ★追加: 画像の背景を透明にする */
     border-radius: 8px; /* 角を丸くする */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 影をつける */
 }
 
-/* Section 2: 令和版☆タピオカ常識テスト の特別なスタイル */
+
+
+/* Section 2: 令和版☆タピオカ常識テスト-------------------------------------------------------------------------------------------------------------*/
 .quiz-section .section-title {
     background-color: #ffc0cb; /* 背景色を薄いピンクに */
     border-radius: 5px; /* 角を丸くする */
@@ -227,7 +228,6 @@ body {
     padding: 20px; /* 内側に余白を設定 */
     background-color: #ffeef2; /* 背景色を薄いピンクに */
     border-radius: 8px; /* 角を丸くする */
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* 内側に影をつける */
 }
 
 .quiz-q {
@@ -250,7 +250,7 @@ body {
     flex-grow: 1; /* 残りのスペースを埋めるように伸びる */
 }
 
-/* クイズの答えボタン（リンク）のスタイル */
+/* クイズの答えボタンの色や形*/
 .quiz-answer-link {
     background-color: #ff69b4; /* 背景色をピンクに */
     color: white; /* 文字の色を白に */
@@ -269,7 +269,7 @@ body {
     background-color: #ff1493; /* マウスを乗せたときに背景色を濃いピンクに */
 }
 
-/* モーダル（ポップアップ画面）の共通スタイル */
+/* 答えの画面にとぶ */
 .modal {
     display: none; /* 最初は非表示にする */
     position: fixed; /* 画面に固定する */
@@ -316,38 +316,10 @@ body {
     cursor: pointer; /* マウスカーソルを指の形にする */
 }
 
-/* MYタピオカ診断モーダルの特別なスタイル */
-.diagnosis-content {
-    max-width: 400px; /* 診断モーダルの最大の幅を少し小さめにする */
-    padding: 20px; /* 内側に余白を設定 */
-    background-color: #fff; /* 背景色を白に */
-}
-
-.modal-phone-image {
-    max-width: 180px; /* 携帯電話画像の最大の横幅を180pxに */
-    height: auto; /* 縦幅は自動で調整 */
-    margin-bottom: 20px; /* 下に20pxの余白 */
-    border-radius: 10px; /* 角を丸くする */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 影をつける */
-}
-
-.diagnosis-content .question {
-    font-size: 1.2em; /* 文字の大きさを少し大きく */
-    color: #333; /* 文字の色を濃いグレーに */
-    margin-bottom: 15px; /* 下に15pxの余白 */
-}
-
-#nickname-input {
-    width: 80%; /* 横幅を80%に */
-    padding: 10px; /* 内側に余白を設定 */
-    margin-bottom: 20px; /* 下に20pxの余白 */
-    border: 1px solid #ddd; /* 細いグレーの枠線 */
-    border-radius: 5px; /* 角を丸くする */
-    font-size: 1em; /* 文字の大きさ */
-    text-align: center; /* 入力文字を中央揃えに */
-}
-
-#submit-nickname {
+/* MYタピオカ診断----------------------------------------------------------------------------------------------------------------------------------*/
+.my-tapioka-diagnosis a.button-as-link { /* 新しく追加したクラスとIDセレクタを組み合わせて、より具体的に指定 */
+    display: block; /* ブロック要素として扱い、幅と高さを設定できるようにする */
+    text-decoration: none; /* 下線を消す */
     background-color: #ff69b4; /* 背景色をピンクに */
     color: white; /* 文字の色を白に */
     padding: 12px 25px; /* 内側に余白を設定 */
@@ -356,14 +328,61 @@ body {
     font-size: 1.1em; /* 文字の大きさを少し大きく */
     cursor: pointer; /* マウスカーソルを指の形にする */
     transition: background-color 0.3s ease; /* 色が変わる時に0.3秒かけて滑らかに変化させる */
+    text-align: center; /* 文字を中央揃えにする */
 }
 
-#submit-nickname:hover {
+.my-tapioka-diagnosis a.button-as-link:hover {
     background-color: #ff1493; /* マウスを乗せたときに背景色を濃いピンクに */
 }
 
+/* 既存のCSSはそのまま */
+.diagnosis-content {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+}
 
-/* Section 3: 久しぶりにタピオカを飲みに行こう！ の特別なスタイル */
+.modal-phone-image {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.diagnosis-content .question {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#nickname-input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* #submit-nickname は今回の修正範囲外なのでそのまま */
+#submit-nickname {
+    background-color: #ff69b4;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit-nickname:hover {
+    background-color: #ff1493;
+}
+
+/* Section 3: 久しぶりにタピオカを飲みに行こう！-------------------------------------------------------------------------------------------- */
 .drink-section .section-title {
     background-color: #ffc0cb; /* 背景色を薄いピンクに */
     border-radius: 5px; /* 角を丸くする */
@@ -405,11 +424,11 @@ body {
 }
 
 .flavor-item img {
-    max-width: 100%; /* 画像の最大の横幅を親要素の100%に */
-    height: auto; /* 縦幅は自動で調整 */
+    width: 4cm; /* ★修正: 画像の横幅を設定 */
+    height: 5cm; /* ★修正: 画像の縦幅を設定 */
+    object-fit: contain; /* ★追加: 画像全体が表示されるように */
     margin-top: 15px; /* 上に15pxの余白 */
     border-radius: 5px; /* 角を丸くする */
-    object-fit: contain; /* 画像を歪ませずに全体を領域に収める */
 }
 
 .my-tapioka-diagnosis { /* MYタピオカ診断ボタンの親要素 */
@@ -439,7 +458,7 @@ body {
     vertical-align: middle; /* 垂直方向の中央に揃える */
 }
 
-/* Section 4: ☆超当たる！今日のタ・ピ・オ・カ占い☆ の特別なスタイル */
+/* Section 4: ☆超当たる！今日のタ・ピ・オ・カ占い☆------------------------------------------------------------------------------------------------------------------------ */
 .fortune-section .section-title {
     background-color: #ffc0cb; /* 背景色を薄いピンクに */
     border-radius: 5px; /* 角を丸くする */
@@ -522,9 +541,8 @@ body {
 }
 
 
-/* レスポンシブデザイン (スマートフォン表示用) */
-/* 画面の幅が768px以下のときに適用されるスタイルです。 */
-@media (max-width: 768px) {
+/* スマートフォン用----------------------------------------------------------------------------------------------------------------------- */
+@media(max-width: 768px) {
     body {
         padding-top: 50px; /* スマホでのヘッダー高さ調整（少し小さくする） */
     }
@@ -538,6 +556,7 @@ body {
         flex-wrap: wrap; /* 横幅が足りなくなったら、次の行に折り返す */
         justify-content: center; /* 横方向の中央に配置する */
         margin-top: 10px; /* 上に10pxの余白 */
+        margin-left: 0; /* ★修正: スマホ表示で左寄せをリセット */
     }
 
     .nav li {
